@@ -1,0 +1,46 @@
+while(True):
+	inp = input()
+	if(inp == '0 0 0'):
+		break
+	arr = inp.split(' ')
+
+	n = int(arr[0])
+	m = int(arr[1])
+	k = int(arr[2])
+
+	run = []
+	goDown = False
+
+	for j in range(0,n):
+		run.append(0)
+
+	count = 0
+	ind = 0
+	num = 1
+
+	while(count != k):
+		run[ind] = num
+		num += 1
+		storeInd = ind
+
+		if(ind == len(run)-1):
+			goDown = True
+		if(ind == 0):
+			goDown = False
+
+		if goDown:
+			ind -= 1
+		else:
+			ind += 1
+
+		if(storeInd + 1 == m):
+			if(run[storeInd] % 7 == 0):
+				count += 1
+			else:
+				st = str(run[storeInd])
+				for q in range(0,len(st)):
+					if(st[q] == '7'):
+						count += 1
+						break
+
+	print(num -1)

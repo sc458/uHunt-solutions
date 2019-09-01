@@ -1,0 +1,16 @@
+dreams = []
+
+T = int(input())
+for j in range(0,T):
+	inp = input()
+	if(len(inp) > 4):
+		arr = inp.split(' ')
+		dreams.append(arr[1])
+
+	elif(inp == 'Test'):
+		if(len(dreams) == 0):
+			print('Not in a dream')
+		else:
+			print(dreams[len(dreams)-1])
+	else:
+		dreams = dreams[0:len(dreams)-1]
