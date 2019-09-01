@@ -1,0 +1,25 @@
+
+while(True):
+	inp_str = input()
+
+	inp_str = inp_str.split(' ')
+	for i in range(0,len(inp_str)):
+		if(inp_str[i] != ''):
+			inp_str = inp_str[i]
+			break
+
+	print(inp_str)
+
+	inp = int(inp_str)
+	if(inp == 0):
+		break
+
+	a = inp % 11
+
+	if(a == 0):
+		print(str(inp_str) + ' is a multiple of 11.')
+	else:
+		print(str(inp_str) + ' is not a multiple of 11.')
+
+
+

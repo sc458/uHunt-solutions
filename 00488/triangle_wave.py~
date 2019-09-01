@@ -1,0 +1,52 @@
+num = int(input())
+
+is_line_freq = False
+
+
+for i in range(0,num):
+	try:
+		inp = input()
+		if not inp.strip():
+			Amp = int(input())
+			Fre = int(input())
+	except ValueError:
+		break
+
+#	if(i != 0):
+#		print()
+
+
+	if(Amp == 0):
+		for j in range(0,Fre):
+			if(i != num-1 or j != Fre-1):
+				print()
+	#		print()
+	elif(Amp == 1):
+		for j in range(0,Fre):
+			print('1')
+			if((i != num-1) or (j != Fre-1)):
+				print()
+	else:
+		for j in range(0,Fre):
+			for k in range(1,Amp+1):
+				stri = ''
+				for q in range(0,k):
+					stri = stri + str(k)
+				print(stri)
+			stri = ''
+			run = Amp-1
+			while(run >= 1):
+				stri = ''
+				for q in range(0,run):
+					stri = stri + str(run)
+				print(stri)
+				if(run == 1):
+					if(i != num-1 or j != Fre-1):
+						print()
+				run = run - 1
+
+#		if(j != Fre-1 ):
+#			print()
+
+
+

@@ -1,0 +1,59 @@
+
+while(True):
+
+	roun = int(input())
+	if(roun == -1):
+		break
+
+	sol = input()
+	guess = input()
+
+	
+
+	count_pos = 0
+	count_neg = 0
+
+	already_guessed = ''
+
+	for i in range(0,len(guess)):
+
+		if(count_pos >= len(sol)):
+			break
+		if(count_neg >= 7):
+			break
+
+		g = guess[i]
+
+		if g in already_guessed:
+		#	count_pos = count_pos + 1
+			a = 5
+		else:
+			already_guessed = already_guessed + g
+
+			save_c = count_pos
+
+			for j in range(0,len(sol)):
+				if(sol[j] == g):
+					count_pos = count_pos + 1
+				#	break
+
+			if(save_c == count_pos):
+				count_neg = count_neg + 1
+
+
+	print('Round ' + str(roun))
+
+	if(count_neg >= 7):
+		print('You lose.')
+	elif(count_neg < 7 and count_pos < len(sol)):
+		print('You chickened out.')
+	else:
+		print('You win.')
+
+
+
+
+
+
+
+

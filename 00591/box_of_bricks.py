@@ -1,0 +1,18 @@
+c = 0
+while(True):
+	c+=1
+	inp = input()
+	if(inp == '0'):
+		break
+	n = int(inp)
+	inp = input().split(' ')
+	su = 0
+	for j in range(0,len(inp)):
+		su += int(inp[j])
+	av = int(su / len(inp))
+	count = 0
+	for j in range(0,len(inp)):
+		count += abs(av - int(inp[j]))
+	print('Set #' + str(c))
+	print('The minimum number of moves is ' + str(int(count/2)) + '.')
+	print('')

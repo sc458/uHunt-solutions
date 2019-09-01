@@ -1,0 +1,30 @@
+
+num = int(input())
+
+for i in range(0,num):
+
+	inp = input()
+
+	arr = inp.split(' ')
+
+	sal = [int(arr[0])]
+	sal.append(int(arr[1]))
+	sal.append(int(arr[2]))
+
+	mini = min(sal)
+	
+	maxi = max(sal)
+
+	winner = -1
+
+	for j in range(0,3):
+		if(sal[j] == mini):
+			sal[j] = -1
+			break
+
+	for j in range(0,3):
+		if(sal[j] == maxi):
+			sal[j] = -1
+			break
+
+	print('Case ' + str(i+1) + ': ' + str(max(sal)))

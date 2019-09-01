@@ -1,0 +1,53 @@
+while(True):
+	inp = input()
+	if(inp == '0 0 0 0 0' or inp == '0 0 0 0 0 0'):
+		break
+	inp = inp.split(' ')
+
+	a = int(inp[0])
+	b = int(inp[1])
+	c = int(inp[2])
+	d = int(inp[3])
+	L = int(inp[4])
+
+#	if (d == 0):
+#		print(0)
+#		continue
+#	if(a==0 and b==0 and c%d == 0):
+#		print(L+1)
+#		continue
+#
+#	if(a%d == 0 and b%d==0 and c%d == 0):
+#		print(L+1)
+#		continue
+#
+#	if (b%d == 0 and c%d == 0):
+#		count = 0
+#		for i in range(0,L+1):
+#			if(a*i*i % d == 0):
+#				count +=1
+#		print(count)
+#		continue
+#
+#	if(a%d == 0 and c%d == 0):
+#		count = 0
+#		for i in range(0,L+1):
+#			if(b*i%d == 0):
+#				count += 1
+#		print(count-1)
+#		continue
+#
+
+	if (d==0):
+		print(0)
+		continue
+
+	count =0
+	for i in range(0,L+1):
+		if(i*(a*i+b) % d == 0):
+			count += 1
+	print(count)
+
+
+
+

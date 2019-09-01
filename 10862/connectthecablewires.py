@@ -1,0 +1,15 @@
+storage = []
+
+storage.append(1)
+storage.append(1)
+
+for i in range(2,4002):
+    storage.append(storage[i-2]+storage[i-1])
+
+while(True):
+    num_houses = int(input())
+
+    if (num_houses == 0):
+        break
+    
+    print(storage[2*num_houses-1])    

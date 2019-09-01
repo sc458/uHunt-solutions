@@ -1,0 +1,33 @@
+arr = []
+
+arr.append(2)
+arr.append(5)
+
+su = 2
+
+for i in range(2,1000):
+	if(i == 2):
+		arr.append(2*arr[i-1] + su + 1)
+	else:
+		arr.append(2*arr[i-1] + su)
+	su += arr[i-1]
+
+while(True):
+	try:
+		inp_str = input()
+		if not inp_str:
+			raise ValueError
+	except ValueError:
+		break
+	except EOFError:
+		break
+
+
+	
+
+
+	num = int(inp_str)	
+	
+	print(arr[num-1])
+
+

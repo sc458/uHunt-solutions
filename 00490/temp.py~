@@ -1,0 +1,73 @@
+import math
+
+print(5.53 * 119.54)
+print(round(661.5))
+print(int(round(3.005)) )
+
+test_cases = int(input())
+
+for i in range(0,test_cases):
+
+    categ_str = input()
+
+    categ_array = categ_str.split(" ")
+    categories = int(categ_array[0])
+    purchases = int(categ_array[1])
+
+    PST_list = []
+    GST_list = []
+    HST_list = []
+    name_list = []
+    
+    for j in range(0,categories):
+
+        n_str = input()
+        n_array = n_str.split(" ")
+
+        name_list.append(n_array[0])
+
+        PST_str = n_array[1]
+        PST_str = PST_str.split("%")
+        PST = float(PST_str[0])
+        PST_list.append(PST)
+
+        GST_str = n_array[2]
+        GST_str = GST_str.split("%")
+        GST = float(GST_str[0])
+        GST_list.append(GST)
+
+        HST_str = n_array[3]
+        HST_str = HST_str.split("%")
+        HST = float(HST_str[0])
+        HST_list.append(HST)
+
+    total_amount = 0.00
+    
+    for j in range(0,purchases):
+
+#        print(total_amount)
+
+        m_str = input()
+        m_array = m_str.split(" ")
+
+        item_name = m_array[0]
+        m_array = m_array[1].split("$")
+
+        pre_tax = float(m_array[1])
+
+
+        index = -1
+        for q in range(0,categories):
+            if (item_name == name_list[q]):
+                index = q
+                break;
+            
+        if (index >= 0):
+            tHSt = int(round(HST_list[index] * pre_tax))
+            tPST = int(round(PST_list[index] * pre_tax))
+            tGST = int(round(GST_list[index] * pre_tax))
+	
+#            temp = int(round((HST_list[index] - (PST_list[index] + GST_list[index])) * pre_tax))
+            total_amount = int(round(100 * total_amount + (tHSt - tPST - tGST))) / 100
+
+    print ("%0.2f" % total_amount)

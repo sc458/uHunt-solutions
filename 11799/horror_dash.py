@@ -1,0 +1,21 @@
+
+
+num = int(input())
+
+for i in range(0,num):
+	arr = input()
+	arr = arr.split(' ')
+
+	ints = []
+	for j in range(0,len(arr)):
+		ints.append(int(arr[j]))
+
+	print('Case ' + str(i+1) + ': ' + str(max(ints)))
+
+
+
+
+
+
+
+

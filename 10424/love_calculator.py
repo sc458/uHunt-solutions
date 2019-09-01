@@ -1,0 +1,94 @@
+import math
+
+while(True):
+	try:
+		inp = input()
+		if not inp:
+			raise ValueError
+	except ValueError:
+		break
+	except EOFError:
+		break
+
+	inp2 = input()
+
+	sum1 = 0
+	sum2 = 0
+
+	for i in range(0,len(inp)):
+		if(ord(inp[i]) >= 97 and ord(inp[i]) <= 122):
+			sum1 = sum1 + ord(inp[i]) - 96
+		if(ord(inp[i]) >= 65 and ord(inp[i]) <= 90):
+			sum1 = sum1 + ord(inp[i]) - 64
+
+	for i in range(0,len(inp2)):
+		if(ord(inp2[i]) >= 97 and ord(inp2[i]) <= 122):
+			sum2 = sum2 + ord(inp2[i]) - 96
+		if(ord(inp2[i]) >= 65 and ord(inp2[i]) <= 90):
+			sum2 = sum2 + ord(inp2[i]) - 64	
+
+#	print(sum1)
+#	print(sum2)
+
+	str1 = str(sum1)
+	str2 = str(sum2)
+
+	while(True):
+
+		res1 = 0
+		res2 = 0
+	
+		for i in range(0,len(str1)):
+			res1 = res1 + int(str1[i])
+
+		for i in range(0,len(str2)):
+			res2 = res2 + int(str2[i])
+
+		if(len(str(res1)) == 1 and len(str(res2)) == 1):
+			break
+
+		str1 = str(res1)
+		str2 = str(res2)
+
+	dev_zero = False
+
+	if(res1 >= res2):
+		res2 = res2 * 100 * 100
+		if(res1 == 0):
+			dev_zero = True
+		else:
+			res = math.floor(0.5 + res2/res1)
+	else:
+		res1 = res1 * 100 * 100 
+	#	print(res1)
+		
+		if(res2 == 0):
+			dev_zero = True
+		else:
+			res = math.floor(0.5 + res1/res2)
+
+	if(dev_zero):
+		print('0.00 %')
+	else:
+		if(res > 10000):
+			print('100.00 %')
+		else:
+			temp = str(res/100)
+			dot = -1
+			for i in range(0,len(temp)):
+				if(temp[i] == '.'):
+					dot = i
+					break
+			if(dot < 0):
+				#print(temp)
+				temp = temp + '.00'
+			if(dot == len(temp)-2):
+				temp = temp + '0'
+ 
+
+			print(temp + ' %')
+
+
+
+
+

@@ -1,0 +1,26 @@
+
+T = int(input())
+
+for i in range(0,T):
+
+	a = int(input())
+	b = int(input())
+
+	if(a % 2 == 0):
+		initial = int(a/2)
+	else:
+		initial = int((a-1)/2)
+
+	if(b % 2 == 0):
+		final = int(b/2)
+		nu = 1
+	else:
+		final = int((b+1)/2)
+		nu = 2
+
+
+
+	print('Case ' + str(i+1) + ': ' + str((final+1)**2 - initial**2 - b - nu))
+
+
+

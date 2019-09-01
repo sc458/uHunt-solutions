@@ -1,0 +1,37 @@
+while(True):
+	try:
+		inp = input()
+		if not inp:
+			raise ValueError
+	except ValueError:
+		break
+	except EOFError:
+		break
+
+	inp_arr = inp.split(' ')
+
+
+	p1_x = float(inp_arr[0])
+	p1_y = float(inp_arr[1])
+
+	p2_x = float(inp_arr[2])
+	p2_y = float(inp_arr[3])
+
+	p3_x = float(inp_arr[4])
+	p3_y = float(inp_arr[5])
+
+	p4_x = float(inp_arr[6])
+	p4_y = float(inp_arr[7])
+	
+	if(p2_x == p3_x and p2_y == p3_y):
+		p5_x = p4_x + (p1_x - p3_x)
+		p5_y = p4_y + (p1_y - p3_y)
+	else:
+		p5_x = p4_x + (p2_x - p3_x)
+		p5_y = p4_y + (p2_y - p3_y)
+
+#	diff_vecX = float(inp_arr[0]) - float(inp_arr[2])
+#	diff_vecY = float(inp_arr[1]) - float(inp_arr[3])
+
+#	point1X = float(inp_arr[
+	print("%.3f" % p5_x + ' ' + "%.3f" % p5_y)

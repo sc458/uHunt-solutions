@@ -1,0 +1,43 @@
+
+
+# calculate the first 200
+res_arr = []
+
+for i in range(0,200):
+	full = i+1
+
+	if(full % 2 == 0):
+		empty = 2
+	else:
+		empty = 0
+
+	count = full
+
+	while(full > 0):
+		empty = full + empty		
+		full = 0
+		
+		if(empty >= 3):
+			full = int(empty / 3)
+			empty = empty - full * 3
+		count = count + full
+
+	res_arr.append(count)
+
+#print(res_arr)
+while(True):
+	try:
+		inp = input()
+		if not inp:
+			raise ValueError
+	except ValueError:
+		break
+	except EOFError:
+		break
+
+	print(res_arr[int(input)-1])
+
+
+
+
+

@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+
+int main() {
+	while(true) {
+
+		int inp;
+		cin >> inp;
+
+		if(inp == 0) {
+			break;
+		} 
+
+		if(inp >= 101) {
+			cout << 'f91(' << inp << ') = ' << inp-10 << endl;
+		} else {
+			cout << 'f91(' << inp << ') = ' << 91 << endl;
+		}
+	}
+}

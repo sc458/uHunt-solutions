@@ -1,0 +1,71 @@
+import math
+from bisect import bisect_left
+
+N = 1000000
+
+gestr = []
+for i in range(0,N):
+	gestr.append(False)
+#print(gestr)
+for i in range(2,int(math.sqrt(N))+1):
+	if not gestr[i]:
+		run = i*i
+		while(run < N):
+			gestr[run] = True
+			run += i
+#			print(run)
+#print(gestr)
+primes = []
+
+for i in range(0,len(gestr)):
+	if not gestr[i]:
+		primes.append(i)
+
+#print(primes)
+
+
+while(True):
+	try:
+		inp = input()
+		if not inp:
+			raise ValueError
+	except ValueError:
+		break
+	except EOFError:
+		break
+
+	num = int(inp)
+
+	index = bisect_left(primes,num)
+	if(not(index != len(primes) and primes[index] == num)):
+
+#	if num not in primes:
+		print(inp + ' is not prime.')
+		continue
+
+	rev = ''
+	for i in range(0,len(inp)):
+		rev = inp[i] + rev
+
+	revNum = int(rev)
+
+	if (revNum == int(inp)):
+		print(inp + ' is prime.')
+		continue
+
+	index = bisect_left(primes,revNum)
+	if(index != len(primes) and primes[index] == revNum):
+
+#	if revNum not in primes:
+		print(inp + ' is emirp.')
+	else:
+		print(inp + ' is prime.')
+
+
+
+
+
+
+
+
+	

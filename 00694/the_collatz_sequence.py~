@@ -1,0 +1,24 @@
+c = 0
+while(True):
+	c += 1
+	inp = input().split(' ')
+	A = int(inp[0])
+	AS = A
+	L = int(inp[1])
+
+	if(A < 0 and L < 0):
+		break
+
+	count = 0
+	while(A <= L):
+		count += 1
+		if(A == 1):
+			break
+		if(A % 2 == 0):
+			A = int(A / 2)
+
+		else:
+			A = 3 * A + 1
+		print(A)
+
+	print('Case ' + str(c) + ': A = ' + str(AS) + ', limit = ' + str(L) + ', number of terms = ' + str(count))
